@@ -7,14 +7,13 @@
 ## Live Demo Links
 
 - 📊 **Dashboard (Streamlit):**  
-  [https://your-streamlit-app.streamlit.app](https://your-streamlit-app.streamlit.app)
+[https://system-integration-demo-app.streamlit.app](https://system-integration-demo-app.streamlit.app)
 
 - 🌐 **API Docs (Swagger UI):**  
-  [https://your-fastapi-app.onrender.com/docs](https://your-fastapi-app.onrender.com/docs)
+  [https://system-integration-demo.onrender.com/docs](https://system-integration-demo.onrender.com/docs)
 
-> Replace the links above with your actual deployed URLs.
 
----
+
 
 ## Project Overview
 
@@ -51,6 +50,7 @@ system-integration-demo/
 │
 ├── requirements.txt              # Python dependencies
 └── README.md                     # You're reading it!
+```
 
 ## ⚙️ What Each File Does
 
