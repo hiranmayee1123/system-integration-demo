@@ -31,6 +31,7 @@ It includes:
 
 ## 📁 Folder Structure
 
+```bash
 system-integration-demo/
 ├── data/
 │   ├── employee_data.csv         # Mock HR dataset
