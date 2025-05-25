@@ -144,10 +144,10 @@ system-integration-demo/
 ## 🔬 Try It Yourself
 
 - 🌐 Open the dashboard:  
-  [`https://your-streamlit-app.streamlit.app`](https://your-streamlit-app.streamlit.app)
+  [`https://system-integration-demo-app.streamlit.app/`](https://system-integration-demo-app.streamlit.app/)
 
 - 📡 Test the API live:  
-  [`https://your-fastapi-app.onrender.com/docs`](https://your-fastapi-app.onrender.com/docs)
+  [`https://system-integration-demo.onrender.com/docs`](https://system-integration-demo.onrender.com/docs)
 
 🧪 Add users using the API and watch them appear instantly in the dashboard.
 
