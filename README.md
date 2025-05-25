@@ -86,12 +86,18 @@ system-integration-demo/
 
 ## 🛠️ Technologies Used
 
-- Python 3.10  
-- **Streamlit** – dashboard UI  
-- **FastAPI** – REST API for integration  
-- **SQLite** – embedded database  
-- **Pandas** – data transformation and ETL logic  
+- **Python 3.10** – Core programming language  
+- **Pandas** – Data transformation and ETL logic  
+- **SQLite** – Embedded local database for storing unified data  
+- **FastAPI** – REST API backend for employee/student integration  
+- **Streamlit** – Interactive dashboard to visualize provisioned identities  
+- **Uvicorn** – ASGI server to run FastAPI  
+- **Jupyter Notebooks** – Used for data simulation and pipeline prototyping  
 
+### 🖥️ Deployment & Hosting
+
+- **Render** – Used to deploy and host the live FastAPI backend (API + Swagger UI)  
+- **Streamlit Community Cloud** – Used to deploy and host the real-time dashboard
 ---
 
 ## 🔬 Try It Yourself
