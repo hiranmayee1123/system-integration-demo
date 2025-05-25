@@ -54,21 +54,62 @@ system-integration-demo/
 
 ## ⚙️ What Each File Does
 
-### scripts/
-- `01_generate_employee_data.ipynb` – Create mock employee records  
-- `02_generate_student_db.ipynb` – Add students, TAs, RAs  
-- `03_etl_job.ipynb` – ETL pipeline into a unified database  
-- `04_identity_sync.ipynb` – Add lifecycle status and build the provision queue  
+### 📁 data/
+- **employee_data.csv** –  
+  Auto-generated mock employee dataset using Faker. Contains fields like `id`, `name`, `email`, `role`, `department`, and `start_date`.
 
-### api/
-- `api_server.py` –  
-  - `POST /add-employee`  
-  - `POST /add-student`  
-  ➕ Adds users and updates the `provision_queue` automatically  
+- **student_roles.db** –  
+  The central SQLite database where all ETL operations store their outputs. Includes tables like:
+  - `employee_records`
+  - `student_roles`
+  - `provision_queue` (merged and synced table of active users)
 
-### dashboard/
-- `dashboard_app.py` –  
-  📊 Real-time dashboard with filters, summary stats, and CSV export  
+---
+
+### 📁 scripts/
+
+- **01_generate_employee_data.ipynb** –  
+  Generates 100+ mock employee records using Python's `Faker` library.  
+  Saves the data into a CSV file: `data/employee_data.csv`.  
+  Used as the HR system simulation source.
+
+- **02_generate_student_db.ipynb** –  
+  Simulates student data including roles such as `"Student"`, `"Teaching Assistant"`, and `"Research Assistant"`.  
+  Stores the records directly into `data/student_roles.db` in a table called `student_roles`.  
+  Used as the academic system source.
+
+- **03_etl_job.ipynb** –  
+  Reads the employee CSV and student DB.  
+  Cleans and standardizes both datasets.  
+  Loads both datasets into `student_roles.db` as separate tables: `employee_records` and `student_roles`.
+
+- **04_identity_sync.ipynb** –  
+  Adds a `status` column to each user (`active`, `pending`, or `student_worker`) based on business logic.  
+  Combines `employee_records` and `student_roles` into a single table called `provision_queue`.  
+  This table powers the dashboard and APIs.
+
+---
+
+### 📁 api/
+
+- **api_server.py** –  
+  A FastAPI server with two main endpoints:
+  - `POST /add-employee` – Adds a new employee record into the `employee_records` table and triggers a sync.
+  - `POST /add-student` – Adds a new student record into the `student_roles` table and refreshes the provision queue.  
+  🔁 After each API call, it re-runs the provisioning logic and updates the `provision_queue` table in the database.
+
+---
+
+### 📁 dashboard/
+
+- **dashboard_app.py** –  
+  A Streamlit-based dashboard that:
+  - Reads data from the `provision_queue` table in `student_roles.db`
+  - Allows filtering by `user type`, `department`, and `role`
+  - Shows summary stats (number of active users, students vs employees)
+  - Allows users to preview data and export it as CSV
+
+
 
 ---
 
