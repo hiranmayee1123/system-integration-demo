@@ -5,7 +5,7 @@ from datetime import datetime
 import pandas as pd
 
 app = FastAPI()
-DB_PATH = "data/student_roles.db"  # Adjust if your path is different
+DB_PATH = "data/student_roles.db"  
 
 # 📦 Input model for employees
 class Employee(BaseModel):
@@ -25,7 +25,7 @@ class Student(BaseModel):
     start_date: str
     role: str  # "Student", "Teaching Assistant", "Research Assistant"
 
-# 🔄 Add employee endpoint
+# Add employee endpoint
 @app.post("/add-employee")
 def add_employee(emp: Employee):
     year = int(emp.start_date.split("-")[0])
@@ -44,12 +44,12 @@ def add_employee(emp: Employee):
     conn.close()
 
     return {
-        "message": "✅ Employee added successfully",
+        "message": "Employee added successfully",
         "status": status,
         "provisioned": status == "active"
     }
 
-# 🔄 Add student endpoint
+# Add student endpoint
 @app.post("/add-student")
 def add_student(stu: Student):
     year = int(stu.start_date.split("-")[0])
@@ -76,7 +76,7 @@ def add_student(stu: Student):
         "provisioned": status == "active"
     }
 
-# 🔄 Shared function to rebuild provision_queue
+# Shared function to rebuild provision_queue
 def rebuild_provision_queue(conn):
     try:
         emp_df = pd.read_sql_query("SELECT * FROM employee_records WHERE status = 'active';", conn)
