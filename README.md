@@ -10,7 +10,7 @@
 [https://system-integration-demo-app.streamlit.app](https://system-integration-demo-app.streamlit.app)
 
 - 🌐 **API Docs (Swagger UI):**  
-  [https://system-integration-demo.onrender.com/docs](https://system-integration-demo.onrender.com/docs)
+  [https://system-integration-demo.onrender.com/docs#/](https://system-integration-demo.onrender.com/docs#/)
 
 
 
@@ -147,7 +147,7 @@ system-integration-demo/
   [`https://system-integration-demo-app.streamlit.app/`](https://system-integration-demo-app.streamlit.app/)
 
 - 📡 Test the API live:  
-  [`https://system-integration-demo.onrender.com/docs`](https://system-integration-demo.onrender.com/docs)
+  [`https://system-integration-demo.onrender.com/docs#/`](https://system-integration-demo.onrender.com/docs#/)
 
 🧪 Add users using the API and watch them appear instantly in the dashboard.
 
